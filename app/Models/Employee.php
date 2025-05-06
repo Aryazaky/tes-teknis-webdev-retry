@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- *
- *
  * @property int $id
  * @property int|null $employee_number
  * @property \Illuminate\Support\Carbon|null $created_at
