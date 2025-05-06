@@ -24,6 +24,7 @@ class PersonalDataFactory extends Factory
             'gender' => fake()->randomElement(['L', 'P']),
             'religion' => fake()->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghuchu']),
             'phone' => fake()->phoneNumber(),
+            'photo_filepath' => fake()->imageUrl(),
         ];
     }
 }

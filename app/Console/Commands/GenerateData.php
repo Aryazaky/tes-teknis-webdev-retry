@@ -11,7 +11,7 @@ class GenerateData extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'app:generate-data {name} {--fields=}';
+    protected $signature = 'make:data {name} {--fields=}';
 
     /**
      * The console command description.

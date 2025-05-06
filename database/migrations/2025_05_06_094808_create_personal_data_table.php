@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('gender', ['L', 'P']); // jenis kelamin
             $table->enum('religion', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghuchu']); // agama
             $table->string('phone')->nullable(); // nomor telepon
+            $table->string('photo_filepath')->nullable(); // foto
             $table->timestamps();
         });
     }

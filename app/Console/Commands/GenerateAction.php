@@ -11,7 +11,7 @@ class GenerateAction extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'app:generate-action {name} {--data=}';
+    protected $signature = 'make:action {name} {--data=}';
 
     /**
      * The console command description.
@@ -46,12 +46,28 @@ class GenerateAction extends GeneratorCommand
         $class = parent::buildClass($name);
 
         $dataClass = $this->option('data');
-        $shortDataClass = $dataClass ? class_basename($dataClass) : 'DataClass';
+
+        // If data class is provided, use it and its short name
+        $useLine = '';
+        $arg = '';
+
+        if ($dataClass) {
+            $shortDataClass = class_basename($dataClass);
+            $useLine = "use {$dataClass};";
+            $arg = "{$shortDataClass} \$data";
+        }
 
         return str_replace(
-            ['{{dataclass}}', '{{dataclass-nameonly}}'],
-            [$dataClass, $shortDataClass],
+            [
+                '{{dataclass}}',
+                '{{dataclass-nameonly}}',
+            ],
+            [
+                $useLine,
+                $arg,
+            ],
             $class
         );
     }
+
 }
