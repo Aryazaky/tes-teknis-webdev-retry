@@ -18,7 +18,7 @@ class GenerateData extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Generate a new data class';
 
     /**
      * The name of the default stub file for the generator.

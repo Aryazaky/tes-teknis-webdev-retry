@@ -1,0 +1,12 @@
+<?php
+namespace {{namespace}};
+
+use {{dataclass}};
+
+class {{class}}
+{
+    public static function run({{dataclass-nameonly}} $data)
+    {
+        //..
+    }
+}
