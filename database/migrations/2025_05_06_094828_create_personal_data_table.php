@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_data', function (Blueprint $table) {
+        Schema::create('employment_data', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->string('rank'); // golongan
+            $table->string('echelon')->nullable(); // eselon
+            $table->string('position')->nullable(); // jabatan
+            $table->string('assignment_location')->nullable(); // tempat tugas
+            $table->string('department')->nullable(); // unit kerja
+            $table->string('taxpayer_id')->nullable(); // NPWP
             $table->timestamps();
         });
     }
@@ -22,6 +29,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_data');
+        Schema::table('employment_data', function (Blueprint $table) {
+            $table->dropForeign(['employee_id']);
+        });
+        Schema::dropIfExists('employment_data');
     }
 };

@@ -17,7 +17,13 @@ class PersonalDataFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'birthplace' => fake()->city(),
+            'address' => fake()->address(),
+            'birthdate' => fake()->date(),
+            'gender' => fake()->randomElement(['L', 'P']),
+            'religion' => fake()->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghuchu']),
+            'phone' => fake()->phoneNumber(),
         ];
     }
 }

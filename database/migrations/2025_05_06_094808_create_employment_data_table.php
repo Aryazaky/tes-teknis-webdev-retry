@@ -11,8 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employment_data', function (Blueprint $table) {
+        // Yang ada nullable itu yang di contoh database ada baris kosongnya.
+        Schema::create('personal_data', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->string('name')->nullable(); // nama
+            $table->string('birthplace')->nullable(); // tempat lahir
+            $table->string('address')->nullable(); // alamat
+            $table->date('birthdate'); // tanggal lahir
+            $table->enum('gender', ['L', 'P']); // jenis kelamin
+            $table->enum('religion', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghuchu']); // agama
+            $table->string('phone')->nullable(); // nomor telepon
             $table->timestamps();
         });
     }
@@ -22,6 +31,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employment_data');
+        Schema::table('personal_data', function (Blueprint $table) {
+            $table->dropForeign(['employee_id']);
+        });
+        Schema::dropIfExists('personal_data');
     }
 };
