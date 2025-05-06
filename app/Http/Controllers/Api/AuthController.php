@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Data\Auth\RegisterUserData;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterUserData $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
