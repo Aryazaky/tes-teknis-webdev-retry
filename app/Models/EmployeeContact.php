@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $employee_id
@@ -34,6 +34,7 @@ class EmployeeContact extends Model
     use HasFactory;
 
     protected $fillable = [
+        'employee_id',
         'address',
         'phone',
     ];

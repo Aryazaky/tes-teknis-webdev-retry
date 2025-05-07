@@ -49,4 +49,9 @@ class Employee extends Model
     {
         return $this->hasOne(EmploymentData::class);
     }
+
+    public function contact() : HasOne
+    {
+        return $this->hasOne(EmployeeContact::class);
+    }
 }

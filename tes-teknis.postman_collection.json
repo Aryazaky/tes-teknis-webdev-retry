@@ -14,7 +14,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.collectionVariables.set(\"TOKEN\", pm.response.json().token)"
+							"pm.collectionVariables.set(\"TOKEN\", pm.response.json().access_token)"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -240,6 +240,383 @@
 					],
 					"path": [
 						"query"
+					],
+					"query": [
+						{
+							"key": "filter[name]",
+							"value": null
+						},
+						{
+							"key": "filter[birthplace]",
+							"value": null
+						},
+						{
+							"key": "filter[employee_number]",
+							"value": null
+						},
+						{
+							"key": "filter[birthdate]",
+							"value": ""
+						},
+						{
+							"key": "filter[gender]",
+							"value": ""
+						},
+						{
+							"key": "filter[religion]",
+							"value": null
+						},
+						{
+							"key": "filter[rank]",
+							"value": null
+						},
+						{
+							"key": "filter[echelon]",
+							"value": null
+						},
+						{
+							"key": "filter[position]",
+							"value": null
+						},
+						{
+							"key": "filter[assignment_location]",
+							"value": null
+						},
+						{
+							"key": "filter[department]",
+							"value": null
+						},
+						{
+							"key": "filter[taxpayer_id]",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "employee_number",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Mamang",
+							"type": "text"
+						},
+						{
+							"key": "photo_filepath",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "birthplace",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "birthdate",
+							"value": "1990-05-01T00:00:00+00:00",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "L",
+							"type": "text"
+						},
+						{
+							"key": "religion",
+							"value": "Islam",
+							"type": "text"
+						},
+						{
+							"key": "rank",
+							"value": "IV",
+							"type": "text"
+						},
+						{
+							"key": "echelon",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "position",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "assignment_location",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "taxpayer_id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/employee/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "32",
+							"type": "text"
+						},
+						{
+							"key": "employee_number",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "photo_filepath",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "birthplace",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "birthdate",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "religion",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "rank",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "echelon",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "position",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "assignment_location",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "taxpayer_id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/employee/update?filter[name]&filter[birthplace]&filter[employee_number]&filter[birthdate]=&filter[gender]=&filter[religion]&filter[rank]&filter[echelon]&filter[position]&filter[assignment_location]&filter[department]&filter[taxpayer_id]",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"update"
+					],
+					"query": [
+						{
+							"key": "filter[name]",
+							"value": null
+						},
+						{
+							"key": "filter[birthplace]",
+							"value": null
+						},
+						{
+							"key": "filter[employee_number]",
+							"value": null
+						},
+						{
+							"key": "filter[birthdate]",
+							"value": ""
+						},
+						{
+							"key": "filter[gender]",
+							"value": ""
+						},
+						{
+							"key": "filter[religion]",
+							"value": null
+						},
+						{
+							"key": "filter[rank]",
+							"value": null
+						},
+						{
+							"key": "filter[echelon]",
+							"value": null
+						},
+						{
+							"key": "filter[position]",
+							"value": null
+						},
+						{
+							"key": "filter[assignment_location]",
+							"value": null
+						},
+						{
+							"key": "filter[department]",
+							"value": null
+						},
+						{
+							"key": "filter[taxpayer_id]",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "32",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/employee/delete?filter[name]&filter[birthplace]&filter[employee_number]&filter[birthdate]=&filter[gender]=&filter[religion]&filter[rank]&filter[echelon]&filter[position]&filter[assignment_location]&filter[department]&filter[taxpayer_id]",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"delete"
 					],
 					"query": [
 						{
