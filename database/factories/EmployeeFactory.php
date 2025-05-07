@@ -19,7 +19,9 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-            'employee_number' => fake()->unique()->randomNumber(8, true)
+            'employee_number' => fake()->unique()->randomNumber(8, true),
+            'name' => fake()->name(),
+            'photo_filepath' => fake()->imageUrl(),
         ];
     }
 

@@ -15,6 +15,8 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('employee_number')->unique()->nullable(); // NIP
+            $table->string('name')->nullable(); // nama
+            $table->string('photo_filepath')->nullable(); // foto
             $table->timestamps();
         });
     }

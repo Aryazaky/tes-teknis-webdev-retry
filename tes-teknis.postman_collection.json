@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "8693cb50-69ee-428d-a0ab-438952c92d57",
+		"name": "tes-teknis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40189699",
+		"_collection_link": "https://www.postman.com/spacecraft-geologist-54754220/workspace/playground/collection/40189699-8693cb50-69ee-428d-a0ab-438952c92d57?action=share&source=collection_link&creator=40189699"
+	},
+	"item": [
+		{
+			"name": "register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"TOKEN\", pm.response.json().token)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "abc master",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "abc@def.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdef12",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "abcdef12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"TOKEN\", pm.response.json().access_token)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "abc@def.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdef12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/me",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"TOKEN\", \"\")"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/query?filter[name]&filter[birthplace]&filter[employee_number]&filter[birthdate]=&filter[gender]=&filter[religion]&filter[rank]&filter[echelon]&filter[position]&filter[assignment_location]&filter[department]&filter[taxpayer_id]",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "filter[name]",
+							"value": null
+						},
+						{
+							"key": "filter[birthplace]",
+							"value": null
+						},
+						{
+							"key": "filter[employee_number]",
+							"value": null
+						},
+						{
+							"key": "filter[birthdate]",
+							"value": ""
+						},
+						{
+							"key": "filter[gender]",
+							"value": ""
+						},
+						{
+							"key": "filter[religion]",
+							"value": null
+						},
+						{
+							"key": "filter[rank]",
+							"value": null
+						},
+						{
+							"key": "filter[echelon]",
+							"value": null
+						},
+						{
+							"key": "filter[position]",
+							"value": null
+						},
+						{
+							"key": "filter[assignment_location]",
+							"value": null
+						},
+						{
+							"key": "filter[department]",
+							"value": null
+						},
+						{
+							"key": "filter[taxpayer_id]",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://tes-teknis.test/api",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
